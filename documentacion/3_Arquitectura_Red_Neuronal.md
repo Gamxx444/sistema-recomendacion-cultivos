@@ -47,9 +47,15 @@ El script `entrenar_modelo.py` conserva la arquitectura y utiliza TensorFlow/Ker
 
 La configuración incluida utiliza 50 épocas, lotes de 32 registros y semilla 42. El conjunto de prueba se evalúa después de terminar el entrenamiento.
 
-El modelo se genera en el primer inicio de la aplicación, si todavía no existen archivos guardados, o al ejecutar `ENTRENAR_MODELO.bat`. El entrenamiento conserva el modelo y sus metadatos en la carpeta `modelos/`.
+Las métricas guardadas para el modelo incluido son:
 
-Las métricas de cada ejecución se guardan en `modelos/modelo_info.json` y se muestran en la sección **Entrenamiento** de la aplicación. Los valores pueden variar ligeramente entre ejecuciones y versiones de TensorFlow. La evaluación utiliza los tres conjuntos indicados en la tabla anterior.
+| Métrica | Resultado |
+|---|---:|
+| Exactitud de entrenamiento | 98.44 % |
+| Exactitud de validación | 99.09 % |
+| Exactitud de prueba independiente | 98.79 % |
+
+Estos resultados corresponden al entrenamiento de la versión actual y no deben confundirse con los resultados reportados en la Fase 1. Las particiones utilizadas son distintas.
 
 ## 5. Bibliotecas y ejecución
 
@@ -66,4 +72,4 @@ La aplicación agrega **Streamlit** para presentar el formulario y los resultado
 
 El instalador incluido está preparado para Windows de 64 bits y busca Python 3.10, 3.11, 3.12, 3.13 o 3.14. Para Python 3.10 a 3.13 instala TensorFlow 2.21.0. Para Python 3.14 instala TensorFlow 2.22.0rc1, que es una versión preliminar. Para utilizar una versión estable de TensorFlow se recomienda Python 3.10 a 3.13. No se ofrece garantía para versiones anteriores a 3.10 ni posteriores a 3.14.
 
-El modelo se genera en el equipo donde se ejecuta la aplicación, mediante TensorFlow/Keras. Los archivos `.keras` y `modelo_info.json` se crean dentro de `modelos/` durante el primer entrenamiento y no se incluyen en el repositorio.
+El archivo de modelo distribuido está en formato `.keras`. Los metadatos incluidos registran Keras 3.13.2 y backend Torch al momento de guardar ese archivo; la aplicación lo carga mediante TensorFlow/Keras. El script `entrenar_modelo.py` de esta carpeta utiliza TensorFlow/Keras para los entrenamientos que se realicen desde esta versión.

@@ -1,0 +1,14 @@
+# Bibliotecas utilizadas en el notebook original
+# TensorFlow 2.21 estable para Python 3.10 a 3.13.
+tensorflow==2.21.0; python_version < "3.14"
+# TensorFlow 2.22.0rc1 incluye wheel de Windows para Python 3.14; es version preliminar.
+tensorflow==2.22.0rc1; python_version >= "3.14" and python_version < "3.15"
+
+numpy>=1.26,<3
+pandas>=2.2,<4
+scikit-learn>=1.4,<2
+seaborn>=0.13.2,<1
+matplotlib>=3.8,<4
+
+# Biblioteca adicional para la interfaz web local
+streamlit>=1.45,<2

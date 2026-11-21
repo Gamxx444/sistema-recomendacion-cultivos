@@ -34,11 +34,17 @@ Como parte de las pruebas del PIA, el notebook incluyó una simulación para Mon
 
 En el comentario del notebook aparece este conjunto de valores de referencia: N=20, P=120, K=200, temperatura=24 °C, humedad=80 %, pH=6.0 y lluvia=200 mm. La llamada ejecutada en la celda utiliza otros valores: `recomendar_cultivo(30, 45, 80, 28.5, 60.0, 7.8, 550.0)`. Se deja constancia de esta diferencia para que no se confundan el comentario y los datos enviados a la función.
 
-## 4. Resultados del modelo de la aplicación
+## 4. Resultados del modelo incluido en la aplicación
 
-El modelo se entrena automáticamente durante el primer inicio, si todavía no existen los archivos de modelo. También puede volver a entrenarse con `ENTRENAR_MODELO.bat`.
+El archivo `modelos/modelo_info.json` contiene las métricas del modelo que se distribuye con esta versión:
 
-Al terminar, se guardan `red_neuronal_cultivos.keras` y `modelo_info.json` dentro de la carpeta `modelos/`. Las métricas de esa ejecución aparecen en la sección **Entrenamiento** de la aplicación. Los resultados pueden variar ligeramente entre equipos y versiones de TensorFlow.
+| Métrica | Resultado |
+|---|---:|
+| Exactitud de entrenamiento | 98.44 % |
+| Exactitud de validación | 99.09 % |
+| Exactitud de prueba independiente | 98.79 % |
+
+La evaluación actual utiliza tres conjuntos: entrenamiento, validación y prueba independiente. Por esa razón, los resultados no se comparan directamente con los porcentajes aproximados de la Fase 1.
 
 ## 5. Cómo utilizar la aplicación
 
@@ -87,7 +93,8 @@ La aplicación muestra advertencias cuando algún dato está fuera de los rangos
 | `entrenar_modelo.py` | Entrenamiento y guardado del modelo. |
 | `redNeuronal.ipynb` | Notebook original de la Fase 1, conservado sin cambios. |
 | `Crop_recommendation.csv` | Dataset agrícola original. |
-| `modelos/` | Guarda el modelo y sus metadatos, generados durante el primer entrenamiento. |
+| `modelos/red_neuronal_cultivos.keras` | Archivo de la red neuronal. |
+| `modelos/modelo_info.json` | Etiquetas, medias, escalas, rangos, arquitectura y métricas. |
 | `requirements.txt` | Bibliotecas necesarias para el proyecto. |
 | `INSTALAR_WINDOWS.bat` | Crea el entorno e instala las dependencias. |
 | `INICIAR_APP.bat` | Inicia la aplicación local. |
